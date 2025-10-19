@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">PlanZone</string>
+    <string name="title_activity_main">PlanZone</string>
+    <string name="package_name">com.planzone.app</string>
+    <string name="custom_url_scheme">com.planzone.app</string>
+</resources>
