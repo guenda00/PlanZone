@@ -1,0 +1,28 @@
+workflows:
+  planzone_debug:
+    name: Android Debug Build
+    max_build_duration: 60
+    environment:
+      vars:
+        NODE_VERSION: "20.6.0"
+    scripts:
+      - name: Install Ionic CLI
+        script: |
+          npm install -g @ionic/cli
+      - name: Install dependencies
+        script: |
+          npm install
+      - name: Build Web
+        script: |
+          ionic build --prod
+      - name: Sync Capacitor
+        script: |
+          npx cap sync
+      - name: Build Android APK Debug
+        script: |
+          npx cap copy android
+          cd android
+          ./gradlew assembleDebug
+          cd ..
+    artifacts:
+      - android/app/build/outputs/**/*.apk
